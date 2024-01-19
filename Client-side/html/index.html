@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>adventure and funn</title>
+    <link rel="icon" href="../public/hiking.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" id="stylesheet" href="../style/index.css">
+    <script type="module" src="../scripts/htmlGenerator.js"></script>
+</head>
+
+<body>
+    <div class="homeContainer">
+        <header class="header"><a href="#" class="logo"><i class="fas fa-hiking"
+                    style="color:rgb(0,128,0,.903)"></i>WanderWeave.</a>
+            <nav id="navbar" class="navbar">
+                <ul class="nav_list">
+                    <li class="nav_title"><a href="#">Home</a></li>
+                    <li class="nav_title"><a href="#book">Book</a></li>
+                    <li class="nav_title"><a href="#packages">packages</a></li>
+                    <li class="nav_title"><a href="#services">Services</a></li>
+                    <li class="nav_title"><a href="#contacts">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="icons" style="margin-right:8rem"><i class="fas fa-search" id="srch"></i><a href="#"
+                    class="fa-solid fa-route" target="_self"></a><i class="fa-solid fa-user" id="user-icon"></i></div>
+        </header>
+        <div id="search-form">
+            <div><input type="search" name="" placeholder="Search For Package here..." id="search-box"><label
+                    for="search-box" class="fas fa-search" id="search-btn"></label><i class="fas fa-times"
+                    id="close"></i>
+            </div>
+            <div class="search-result"> </div>
+        </div>
+        <section class="home" id="home" style="padding:0">
+            <div class="box" style="background-image:url(/WanderWeave/Client-side/public/mainn.jpg)">
+                <div class="content">
+                    <h3>Roam Freely</h3><span>Your Journey, Your Story.</span><a href="#services" class="btn">Get
+                        started</a>
+                </div>
+            </div>
+        </section>
+        <section class="book" id="book">
+            <h3 class="heading" style="color:#febfd8">Bookings..!!</h3>
+            <div class="form-container"><img src="/WanderWeave/Client-side/public/bookingPic.png" loading="lazy">
+                <div>
+                    <form id="bookingForm">
+                        <label>Where To</label><input type="text" id="whereTo" class="input" placeholder="package code">
+                        <label>How many guests</label><input type="number" id="guests" class="input">
+                        <label>Arrivals</label><input type="date" id="arrivals" class="input">
+                        <label>Leaving</label><input type="date" id="leaving" class="input">
+                        <input type="button" id="submitButton" class="btn" value="Book Now">
+                    </form>
+
+                </div>
+            </div>
+        </section>
+        <section class="services" id="services">
+            <h1 class="heading">
+                <center style="color:#26001b;text-decoration:underline;margin-top:1rem">What We Offer</center>
+            </h1>
+            <div class="box-container service-Boxes">
+
+            </div>
+        </section>
+        <section class="packages" id="packages">
+            <h2 class="heading" style="color:#febfd8;text-decoration:underline;margin-top:1rem">Popular Packages
+            </h2>
+            <div class="box-container popular-package-boxes">
+            </div><button class="btn2" id="exploreAll">All Packages</button>
+        </section>
+        <footer class="footer" id="contacts">
+            <center>
+                <div class="boxes">
+                    <div class="box">
+                        <h2 class="sub-heading2">Location</h2>
+                        <ul>
+                            <li>India</li>
+                            <li>Russia</li>
+                            <li>Japan</li>
+                            <li>China</li>
+                            <li>Nepal</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h2 class="sub-heading2">Quick Links</h2>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#dish_container">Dishes</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#special_dish">Menu</a></li>
+                            <li><a href="#review">Review</a></li>
+                            <li><a href="#order">Order</a></li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h2 class="sub-heading2">Contact Info</h2>
+                        <ul>
+                            <li>+919675730204</li>
+                            <li>+916398356210</li>
+                            <li>abhinaybisht07@gmail.com</li>
+                            <li>ShimlaBypass rd,Dehradun</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h2 class="sub-heading2">Follow Us</h2>
+                        <ul>
+                            <li><a href="">Facebook</a></li>
+                            <li><a href="">Twitter</a></li>
+                            <li><a href="">Instagram</a></li>
+                            <li><a href="">Linkdin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </center>
+            <div class="credit">Copyright @ 2023 By <span>WanderWeave.</span></div>
+        </footer>
+    </div>
+
+    <div class="allPackagesContainer ">
+        <section class="packages" id="additional-packages">
+            <h2 class="heading" style="color:#febfd8;text-decoration:underline;margin-top:1rem">Additional Packages
+            </h2>
+            <div class="box-container additional-package-boxes">
+        </section>
+    </div>
+
+    <div class="packageDetailsContainer ">
+        <header class="package-details-header">
+            <h1></h1>
+            <p>Explore the mesmerizing aquatic beauty of Kerala with our exclusive package.</p>
+        </header>
+        <section class="package-details">
+            <img id="packageDetailImage" src="" alt="Kerala's Aquatic Charm Image" loading="lazy">
+            <div class="description">
+                <h2>Immerse Yourself in Kerala's Natural Wonders</h2>
+                <p>Discover the tranquil backwaters, pristine beaches, and lush green landscapes of Kerala.
+                    Experience
+                    the
+                    unique charm of this aquatic paradise and create lasting memories.</p>
+            </div>
+        </section>
+        <section class="additional-info">
+            <h2>What's Included</h2>
+            <ul>
+                <li>Relaxing houseboat cruise through Kerala's backwaters</li>
+                <li>Exploration of beautiful beaches with golden sands</li>
+                <li>Visit to traditional fishing villages and local cultural experiences</li>
+                <li>Dive into the world of Ayurveda with wellness treatments</li>
+                <li>Delight in authentic Kerala cuisine with flavors that captivate the senses</li>
+            </ul>
+        </section>
+        <section class="pricing">
+            <h2>Pricing Information</h2>
+            <ul>
+                <li>Package Cost: $1500 per person</li>
+                <li>Accommodation Charges: $500 per person</li>
+                <li>Houseboat Cruise Fee: $300 per person</li>
+                <li>Ayurveda Wellness Package: $200 per person</li>
+                <li>Additional Services: $100 per person</li>
+            </ul>
+        </section>
+        <section class="booking">
+            <h2>Book Your Kerala Adventure Now</h2>
+            <p>Embark on a journey to Kerala's aquatic charm. Secure your spot for an unforgettable experience!</p>
+            <a class="btn" id="gohome" href="#">Home</a>
+            <a class="btn" id="packageBookBtn" href="#">Book Now</a>
+            <a class="btn" id="explore"> Other Packages</a>
+        </section>
+    </div>
+
+    <script type="module" src="../scripts/index.js"></script>
+</body>
+
+</html>

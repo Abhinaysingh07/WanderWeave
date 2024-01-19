@@ -1,0 +1,358 @@
+================================ package 1 ==========================================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Triangle Tour - Explore Now</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #260014, #400020);
+            color: #fff;
+        }
+
+        header {
+            background-color: #400020;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #a06077;
+        }
+
+        .package-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .package-details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .description {
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .description h2 {
+            color: #a06077;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .description p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .additional-info {
+            background: linear-gradient(to bottom, #260014, #400020);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .additional-info h2 {
+            color: #a06077;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .additional-info ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .additional-info li {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .additional-info li::before {
+            content: '\2022';
+            color: #a06077;
+            font-size: 1.5rem;
+            display: inline-block;
+            width: 1em;
+            margin-right: 0.5em;
+        }
+
+        .booking {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .booking h2 {
+            color: #a06077;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            background-color: #400020;
+            color: #fff;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2b0013;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Golden Triangle Tour</h1>
+        <p>Discover the rich cultural tapestry of India with our exclusive Golden Triangle Tour.</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="package-details">
+        <img src="/WanderWeave/Client-side/public/picb1.jpg" alt="Golden Triangle Tour Image" loading="lazy">
+        <div class="description">
+            <h2>Experience the Magic of Delhi, Agra, and Jaipur</h2>
+            <p>Embark on a mesmerizing journey to three of India's most iconic cities, each with its own unique charm and historical significance. Immerse yourself in the vibrant culture, awe-inspiring architecture, and the warmth of Indian hospitality.</p>
+        </div>
+    </section>
+
+    <!-- Additional Information Section -->
+    <section class="additional-info">
+        <h2>What's Included</h2>
+        <ul>
+            <li>Guided tour to historical landmarks such as the majestic Taj Mahal and the architectural marvel Hawa Mahal</li>
+            <li>Luxurious accommodations blending modern comfort with traditional elegance</li>
+            <li>Culinary delight with authentic Indian cuisine at handpicked restaurants</li>
+            <li>Private transportation with a knowledgeable local guide providing insights into each destination</li>
+            <li>Explore vibrant markets, interact with locals, and witness the rich tapestry of Indian culture firsthand</li>
+        </ul>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking">
+        <h2>Book Your Golden Triangle Tour Now</h2>
+        <p>Seize the opportunity to immerse yourself in the beauty and history of India. Secure your spot for an unforgettable adventure!</p>
+        <a href="/WanderWeave/Client-side/html/booking.html" class="btn">Book Now</a>
+    </section>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+====================================package 2=======================================
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala's Aquatic Charm - Explore Now</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #260014, #400020);
+            color: #fff;
+        }
+
+        header {
+            background-color: #400020;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #a06077;
+        }
+
+        .package-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .package-details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .description {
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .description h2 {
+            color: #a06077;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .description p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .additional-info {
+            background: linear-gradient(to bottom, #260014, #400020);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .additional-info h2 {
+            color: #a06077;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .additional-info ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .additional-info li {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .additional-info li::before {
+            content: '\2022';
+            color: #a06077;
+            font-size: 1.5rem;
+            display: inline-block;
+            width: 1em;
+            margin-right: 0.5em;
+        }
+
+        .booking {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .booking h2 {
+            color: #a06077;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            background-color: #400020;
+            color: #fff;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2b0013;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Kerala's Aquatic Charm</h1>
+        <p>Explore the mesmerizing aquatic beauty of Kerala with our exclusive package.</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="package-details">
+        <img src="/WanderWeave/Client-side/public/kerela.jpg" alt="Kerala's Aquatic Charm Image" loading="lazy">
+        <div class="description">
+            <h2>Immerse Yourself in Kerala's Natural Wonders</h2>
+            <p>Discover the tranquil backwaters, pristine beaches, and lush green landscapes of Kerala. Experience the unique charm of this aquatic paradise and create lasting memories.</p>
+        </div>
+    </section>
+
+    <!-- Additional Information Section -->
+    <section class="additional-info">
+        <h2>What's Included</h2>
+        <ul>
+            <li>Relaxing houseboat cruise through Kerala's backwaters</li>
+            <li>Exploration of beautiful beaches with golden sands</li>
+            <li>Visit to traditional fishing villages and local cultural experiences</li>
+            <li>Dive into the world of Ayurveda with wellness treatments</li>
+            <li>Delight in authentic Kerala cuisine with flavors that captivate the senses</li>
+        </ul>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking">
+        <h2>Book Your Kerala Adventure Now</h2>
+        <p>Embark on a journey to Kerala's aquatic charm. Secure your spot for an unforgettable experience!</p>
+        <a href="/WanderWeave/Client-side/html/booking.html" class="btn">Book Now</a>
+    </section>
+
+</body>
+
+</html>

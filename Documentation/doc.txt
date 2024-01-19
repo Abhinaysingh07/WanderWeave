@@ -1,0 +1,1 @@
+switchToPackageDetails() code inside it is made function so that it can be used after user click on explore now of a searchResult without this function it was not working as eventlistener was not ther
