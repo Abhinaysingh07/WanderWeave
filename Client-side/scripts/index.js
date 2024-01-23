@@ -138,7 +138,10 @@ gohomeFromExplore.addEventListener('click', () => {// switch to homeContainer
 
 // form submit
 const submitButton = document.getElementById('submitButton');
-submitButton.addEventListener('click', function () {
+submitButton.addEventListener('click', function (event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+
   // Get form data
   const location = document.getElementById('whereTo').value;
   const guests = document.getElementById('guests').value;
@@ -147,10 +150,7 @@ submitButton.addEventListener('click', function () {
 
   // Prepare data object
   const formData = {
-    location,
-    guests,
-    arrivals,
-    leaving,
+    location, guests, arrivals, leaving,
   };
 
   // Send data to the server
@@ -163,7 +163,11 @@ submitButton.addEventListener('click', function () {
   })
     .then(response => response.json())
     .then(data => {
-      console.log('Server response:', data);
+      if (data.status === "error") {
+        alert('Server response:' + data.message);
+      } else {
+        alert('Server response:' + data.message);
+      }
     })
     .catch(error => {
       console.error('Error:', error);

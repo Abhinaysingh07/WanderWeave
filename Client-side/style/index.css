@@ -70,6 +70,7 @@ section {
 .header .logo:hover {
   background: linear-gradient(to right, #26001b, #fff2f5);
   -webkit-background-clip: text;
+  background-clip: text; /* Add the standard property */
   color: transparent;
 }
 
