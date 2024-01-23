@@ -25,10 +25,8 @@ app.post('/submitPackage', (req, res) => {
         // Check if guests is a non-negative number
         res.json({ status: 'error', message: "Guests can't be in a negative value" });
     } else {
-        // Check if the date of arrival is less than the date of leaving
         const arrivalDate = new Date(arrivals);
         const leavingDate = new Date(leaving);
-
         if (arrivalDate >= leavingDate) {
             res.json({ status: 'error', message: 'Date of arrival must be before the date of leaving' });
         } else {

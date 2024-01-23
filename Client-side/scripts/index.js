@@ -167,6 +167,10 @@ submitButton.addEventListener('click', function (event) {
         alert('Server response:' + data.message);
       } else {
         alert('Server response:' + data.message);
+        document.getElementById('whereTo').value = "";
+        document.getElementById('guests').value = "";
+        document.getElementById('arrivals').value = "";
+        document.getElementById('leaving').value = "";
       }
     })
     .catch(error => {
