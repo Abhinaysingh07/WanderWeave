@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Booked Packages</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .user-booked-packages {
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .booked-package {
+            display: flex;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .booked-package:hover {
+            transform: scale(1.05);
+        }
+
+        .booked-package img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .package-details {
+            flex-grow: 1;
+            padding: 1rem;
+        }
+
+        .package-details h2 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.2em;
+        }
+
+        .package-details p {
+            margin: 0.5rem 0;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .package-details p span {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="user-booked-packages">
+        <h1>Your Booked Packages</h1>
+        <div id="booked-packages-container"></div>
+    </section>
+
+    <script type="module">
+        import { servicesDetails, packagesData, additionalPackagesData } from "../scripts/data.js";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchingPackages();
+        });
+
+        function fetchingPackages() {
+            fetch('http://localhost:5500/getPackages', { method: 'GET', headers: { "Content-Type": 'application/json' } })
+                .then(response => response.json())
+                .then(convertedRes => renderPackages(convertedRes.packages))
+                .catch(error => console.log(error));
+        }
+
+        function renderPackages(packageArray) {
+            const bookedPackagesContainer = document.getElementById('booked-packages-container');
+            let html = "";
+
+            packageArray.forEach(e => {
+                let packagee = retrieveData(e.packageCode);
+                let formattedArrivalDate = formatDate(e.arrival);
+                let formattedLeavingDate = formatDate(e.leaving);
+
+                html += `
+                <div class="booked-package">
+                    <img src="${packagee.image}" alt="Booked Package Image">
+                    <div class="package-details">
+                        <h2>${packagee.title}</h2>
+                        <p>Date of Booking: <span>${formattedArrivalDate}</span></p>
+                        <p>Number of Guests: <span>${e.guests}</span></p>
+                        <p>Arrival Date: <span>${formattedArrivalDate}</span></p>
+                        <p>Departure Date: <span>${formattedLeavingDate}</span></p>
+                    </div>
+                </div>`;
+            });
+
+            bookedPackagesContainer.innerHTML = html;
+        }
+
+        function retrieveData(packageId) {
+            const foundPackage = additionalPackagesData.find(element => element.code === packageId);
+
+            return {
+                code: foundPackage.code,
+                image: foundPackage.image,
+                title: foundPackage.title,
+                description: foundPackage.description,
+            };
+        }
+
+        function formatDate(dateString) {
+            const options = { day: 'numeric', month: 'short', year: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-IN', options);
+        }
+    </script>
+
+</body>
+
+</html>
