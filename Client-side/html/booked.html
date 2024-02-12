@@ -74,8 +74,26 @@
             font-weight: bold;
             color: #333;
         }
+
+        .package-details button.delete-button {
+            background-color: #972222;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-top: 0.5rem;
+        }
+
+        .package-details button.delete-button:hover {
+            background-color: #972222dc;
+
+        }
     </style>
+
 </head>
+
 
 <body>
 
@@ -91,41 +109,10 @@
             fetchingPackages();
         });
 
-        function fetchingPackages() {
-            fetch('http://localhost:5500/getPackages', { method: 'GET', headers: { "Content-Type": 'application/json' } })
-                .then(response => response.json())
-                .then(convertedRes => renderPackages(convertedRes.packages))
-                .catch(error => console.log(error));
-        }
 
-        function renderPackages(packageArray) {
-            const bookedPackagesContainer = document.getElementById('booked-packages-container');
-            let html = "";
-
-            packageArray.forEach(e => {
-                let packagee = retrieveData(e.packageCode);
-                let formattedArrivalDate = formatDate(e.arrival);
-                let formattedLeavingDate = formatDate(e.leaving);
-
-                html += `
-                <div class="booked-package">
-                    <img src="${packagee.image}" alt="Booked Package Image">
-                    <div class="package-details">
-                        <h2>${packagee.title}</h2>
-                        <p>Date of Booking: <span>${formattedArrivalDate}</span></p>
-                        <p>Number of Guests: <span>${e.guests}</span></p>
-                        <p>Arrival Date: <span>${formattedArrivalDate}</span></p>
-                        <p>Departure Date: <span>${formattedLeavingDate}</span></p>
-                    </div>
-                </div>`;
-            });
-
-            bookedPackagesContainer.innerHTML = html;
-        }
 
         function retrieveData(packageId) {
             const foundPackage = additionalPackagesData.find(element => element.code === packageId);
-
             return {
                 code: foundPackage.code,
                 image: foundPackage.image,
@@ -138,6 +125,62 @@
             const options = { day: 'numeric', month: 'short', year: 'numeric' };
             return new Date(dateString).toLocaleDateString('en-IN', options);
         }
+
+        function deletePackage(packageCode) {
+            fetch(`http://localhost:5500/deletePackage/${packageCode}`, { method: 'DELETE' })
+                .then(response => response.json())
+                .then(() => {
+                    fetchingPackages();
+                })
+                .catch(error => console.log(error));
+        }
+
+        function renderPackages(bookedPackages) {
+            const bookedPackagesContainer = document.getElementById('booked-packages-container');
+            let html = "";
+            bookedPackages.forEach(bookedPackage => {
+                let packageObj = retrieveData(bookedPackage.packageCode);
+                let formattedArrivalDate = formatDate(bookedPackage.arrival);
+                let formattedLeavingDate = formatDate(bookedPackage.leaving);
+
+                html += `
+                <div class="booked-package">
+                    <img src="${packageObj.image}" alt="Booked Package Image">
+                    <div class="package-details">
+                        <h2>${packageObj.title}</h2>
+                        <p>Date of Booking: <span>${formattedArrivalDate}</span></p>
+                        <p>Number of Guests: <span>${bookedPackage.guests}</span></p>
+                        <p>Arrival Date: <span>${formattedArrivalDate}</span></p>
+                        <p>Departure Date: <span>${formattedLeavingDate}</span></p>
+                        <button class="delete-button" data-code = '${packageObj.code}')">Delete</button>
+                    </div>
+                </div>`;
+            });
+
+            bookedPackagesContainer.innerHTML = html;
+            let deleteButtons = document.querySelectorAll('.delete-button');
+            deleteButtons.forEach(
+                (button) => {
+                    button.addEventListener("click", () => {
+                        let packageCode = button.dataset.code;
+                        console.log(packageCode);
+                        const deleteConfirm = confirm("Are you sure you want to Delete This Package")
+                        if (deleteConfirm) { deletePackage(packageCode); }
+                    })
+                }
+            )
+        }
+
+        function fetchingPackages() {
+            fetch('http://localhost:5500/getPackages', { method: 'GET', headers: { "Content-Type": 'application/json' } })
+                .then(response => response.json())
+                .then(convertedRes => renderPackages(convertedRes.packages))
+                .catch(error => console.log(error));
+        }
+
+
+
+
     </script>
 
 </body>

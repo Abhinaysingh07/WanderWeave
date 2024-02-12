@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const pool = sql.createPool({
-    connectionLimit: 10,
+    connectionLimit: 5,
     host: 'localhost',
     user: 'root',
     password: '',
@@ -62,17 +62,17 @@ app.get('/getPackages', (req, res) => {
 });
 
 // Route for deleting a package by id
-app.delete('/deletePackage/:id', (req, res) => {
-    const packageId = req.params.id;
-    const deleteQuery = 'DELETE FROM packageDetails WHERE id = ?';
-    pool.query(deleteQuery, [packageId], (error, results) => {
+app.delete('/deletePackage/:packageCode', (req, res) => {
+    const packageCode = req.params.packageCode;
+    const deleteQuery = 'DELETE FROM packageDetails WHERE packageCode = ?';
+    pool.query(deleteQuery, [packageCode], (error, results) => {
         if (error) {
-            console.error('Delete query error:', error);
             return res.status(500).json({ status: 'error', message: 'Error deleting package' });
         }
         res.json({ status: 'success', message: 'Package deleted successfully' });
     });
 });
+
 
 // Route for updating a package by id
 app.put('/updatePackage/:id', (req, res) => {
