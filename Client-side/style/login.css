@@ -1,0 +1,202 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.head h7 {
+  color: #4b0082;
+  font-size: 4rem;
+}
+.head .fa-times {
+  color: #4b0082;
+  /* font-size: 4rem; */
+}
+
+.head .fa-times {
+  font-size: 2.5rem;
+}
+
+.extra-btn {
+  display: flex;
+  color: rgb(105, 105, 105);
+  align-items: center;
+}
+.lines {
+  display: flex;
+  align-items: center;
+}
+.login_form .lines hr,
+.signup_form .lines hr {
+  border-bottom: 0.0001px solid rgba(0, 0, 0, 0.103);
+  width: 17rem;
+}
+.lines span {
+  font-size: 2.5rem;
+  color: #f5f5f5;
+}
+
+.login_form hr,
+.signup_form hr {
+  border-bottom: 0.0001px solid rgba(0, 0, 0, 0.103);
+  width: 40rem;
+}
+
+.loginConatiner,
+.signupContainer {
+  display: block;
+  position: fixed;
+  /* Position the signupContainer relative to the viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(28, 28, 28, 0.85);
+  z-index: 9999;
+}
+.login_form,
+.signup_form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #d891e3;
+  padding: 1.5rem 2rem;
+  border-radius: 7px;
+  align-items: center;
+  width: 45rem;
+  margin: 4rem auto;
+  /* Center the overlay content vertically and horizontally */
+}
+
+.login_form button .fa-envelope,
+.fa-google {
+  margin: 0 2rem;
+}
+.login_form .lsbtn,
+.signup_form .lsbtn {
+  background-color: #4b0082;
+  color: #ffdab9;
+  font-size: 2rem;
+  border-radius: 7px;
+}
+.lsbtn:hover {
+  background-color: #4c0082ce;
+}
+
+.signup-link {
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+.login_form a,
+.signup_form a {
+  color: #006400;
+}
+
+.login_form a:hover,
+.signup_form a:hover,
+.footer .box li a :hover,
+.footer .box li :hover {
+  text-decoration: underline;
+}
+
+.login_form input,
+.login_form button,
+.signup_form input,
+.signup_form button {
+  font-size: 2rem;
+  width: 40rem;
+  height: 5rem;
+  border: 1px solid rgba(0, 0, 0, 0.281);
+  padding: 1rem;
+  border-radius: 7px;
+  background: #ffdab9;
+}
+
+.signupContainer .lfooter p {
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  color: #4b0082;
+}
+
+.confirmation-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #32cd32; /* Green background color, change as needed */
+  color: #fff; /* Text color, change as needed */
+  padding: 20px 30px; /* Increased padding for a bigger box */
+  border-radius: 10px; /* Increased border radius for a smoother look */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Increased box shadow */
+  z-index: 999; /* Ensure it's above other elements */
+  font-size: 16px; /* Increased font size for the text */
+}
+/* Initially hide the user icon */
+.fa-user {
+  display: none;
+}
+/* Style for the user sidebar */
+#user-sidebar {
+  text-align: left;
+  display: block;
+  position: fixed;
+  top: -30rem; /* Initially off-screen */
+  right: 1rem;
+  width: 35rem;
+  background-color: #ffdab9;
+  padding: 2rem; /* Reduced padding for a cleaner look */
+  transition: top 0.3s ease; /* Adjusted transition property */
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Added a subtle box shadow */
+  z-index: 999; /* Ensure it's on top of other content */
+}
+
+/* Style for text inside the user sidebar */
+#user-sidebar h2 {
+  font-size: 2.2rem; /* Slightly adjusted font size */
+  text-align: center;
+  color: #4b0082;
+  text-decoration: underline;
+}
+
+/* Style for the user details */
+.user-details {
+  margin-top: 1rem; /* Adjusted margin for spacing */
+}
+
+/* Style for the username and userphone spans */
+#username,
+#userphone {
+  font-size: 1.7rem; /* Adjusted font size for user details */
+  color: #ffdab9;
+  display: inline-block; /* Display spans in a block to allow line breaks */
+  margin-right: 1rem; /* Add a little spacing between the elements */
+  margin-bottom: 0.5rem; /* Adjusted margin for vertical spacing */
+}
+
+/* Style for the Logout button */
+#logout-button {
+  font-size: 1.8rem;
+  color: #4b0082;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 1rem; /* Adjusted margin */
+  border: 1px solid #4b0082;
+  padding: 1rem;
+  outline: none; /* Remove button outline on click */
+}
+
+/* Style for the button on hover */
+#logout-button:hover {
+  color: #ffdab9;
+  background-color: #660166; /* Change background color on hover */
+}
+
+/* Style the user icon to make it look clickable */
+#user-icon {
+  cursor: pointer;
+}

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" id="stylesheet" href="../style/index.css">
     <script type="module" src="../scripts/htmlGenerator.js"></script>
+    <link rel="stylesheet" href="../style/login.css">
 </head>
 
 <body>
@@ -29,6 +30,16 @@
             <div class="icons" style="margin-right:8rem"><i class="fas fa-search" id="srch"></i><a
                     href="../html/booked.html" class="fa-solid fa-route" target="_self"></a><i class="fa-solid fa-user"
                     id="user-icon"></i></div>
+            <!-- Sidebar to display user information -->
+            <div class="sidebar" id="user-sidebar">
+                <h2>User Information</h2>
+                <div class="user-details">
+                    <span id="username"></span><br>
+                    <span id="userphone"></span>
+                </div>
+                <button id="logout-button">Logout</button>
+            </div>
+
         </header>
         <div id="search-form">
             <div><input type="search" name="" placeholder="Search For Package here..." id="search-box"><label
@@ -37,6 +48,66 @@
             </div>
             <div class="search-result"> </div>
         </div>
+        <!-- login section starts here -->
+
+        <div class="loginConatiner" id="loginConatiner">
+            <form onsubmit="return false;" class="login_form" id="login_form">
+
+                <div class="head">
+                    <h7>Login</h7><i class="fas fa-times close"></i>
+                </div>
+
+                <input type="text" placeholder="Phone" id="phone" name="phone" pattern="[0-9]{10}">
+                <!-- Inside the login_form form -->
+                <input type="password" placeholder="Password" id="pass" name="password" required>
+                <button type="button" class="login-submit-button lsbtn">Login</button>
+
+                <div class="lines">
+                    <hr><span>or</span>
+                    <hr>
+                </div>
+
+                <button type="button" class="extra-btn"><i class="fa-regular fa-envelope"></i>Continue with
+                    Email</button>
+                <button type="button" class="extra-btn"><i class="fa-brands fa-google"></i>
+                    Continue with Google</button>
+                <hr>
+
+                <p class="signup-link">New To SwagPizza ? <a href="#overlay" class="signup-link"> Create new
+                        account</a></p>
+
+            </form>
+        </div>
+        <div id="signupContainer" class="signupContainer">
+
+            <form action="http://localhost:5500/signup" method="post" class="signup_form" id="signup_form">
+                <div class="head">
+                    <h7>Signup</h7><i class="fas fa-times close"></i>
+                </div>
+                <input type="text" placeholder="Full Name" id="s_username" name="s_username" required>
+                <input type="text" placeholder="Phone Number" id="pno" name="pno" required pattern="[0-9]{10}">
+                <input type="password" placeholder="Password" id="password" name="password" required>
+                <footer class="lfooter">
+                    <p>By clicking Sign Up, you agree to our <a href="">Terms</a>, <a href="">Privacy
+                            Policy</a>,
+                        and
+                        <a href="">Cookies Policy.</a> You may receive SMS notifications from us and can opt out at
+                        any
+                        time.
+                    </p>
+                    <button class="signup-submit-button lsbtn">Create an account</button>
+                </footer>
+                <div class="lines">
+                    <hr><span>or</span>
+                    <hr>
+                </div>
+                <button type="button" class="extra-btn"><i class="fa-brands fa-google"></i>
+                    Continue with Google</button>
+                <p class="signup-link">Already Have An Account ? <a href="#lform_container" class="signup-link">
+                        Login</a></p>
+            </form>
+        </div>
+
         <section class="home" id="home" style="padding:0">
             <div class="box" style="background-image:url(/WanderWeave/Client-side/public/mainn.jpg)">
                 <div class="content">
@@ -173,7 +244,7 @@
             <a class="btn" id="explore"> Other Packages</a>
         </section>
     </div>
-
+    <script src="../scripts/login.js"></script>
     <script type="module" src="../scripts/index.js"></script>
 </body>
 
