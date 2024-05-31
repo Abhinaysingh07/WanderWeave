@@ -1,14 +1,18 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 const app = express();
 const sql = require('mysql2');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
+
+
 const port = 5500;
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const pool = sql.createPool({
-    connectionLimit: 5,
+    connectionLimit: 10,
     host: 'localhost',
     user: 'root',
     password: '',
@@ -70,6 +74,92 @@ app.delete('/deletePackage/:packageCode', (req, res) => {
             return res.status(500).json({ status: 'error', message: 'Error deleting package' });
         }
         res.json({ status: 'success', message: 'Package deleted successfully' });
+    });
+});
+
+// Middleware to verify JWT token from Authorization header
+function verifyToken(req, res, next) {
+    // Extract the token from the Authorization header
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader) {
+        return res.status(403).json({ message: 'Token missing' });
+    }
+
+    const token = authHeader.split(' ')[1]; // Extract the token part after "Bearer"
+
+    if (!token) {
+        return res.status(403).json({ message: 'Token missing' });
+    }
+
+    jwt.verify(token, 'your-secret-key', (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ message: 'Invalid token' });
+        }
+        // Store the decoded user information in the request object
+        req.user = decoded;
+        next(); // Continue processing the request
+    });
+}
+
+app.post('/signup', (req, res) => {
+
+    const { s_username, pno, password } = req.body;
+
+    // Check if the phone number is already registered
+    pool.query('SELECT * FROM userss WHERE phone = ?', [pno], (phoneCheckErr, phoneCheckResults) => {
+        if (phoneCheckErr) {
+            return res.status(500).json({ error: 'Database error' });
+        }
+
+        if (phoneCheckResults.length > 0) {
+            return res.status(400).json({ message: 'Phone number already registered' });
+        }
+
+        // Phone number is not registered, proceed with registration
+        const hashedPassword = bcrypt.hashSync(password, 10); // Using sync version for simplicity
+
+        pool.query('INSERT INTO userss (username, phone, password) VALUES (?, ?, ?)', [s_username, pno, hashedPassword], (insertErr, result) => {
+            if (insertErr) {
+                return res.status(500).json({ error: 'Server error' });
+            }
+
+            if (result.affectedRows > 0) {
+                return res.json({ message: 'User registered successfully' });
+            } else {
+                return res.status(500).json({ error: 'Server error' });
+            }
+        });
+    });
+});
+
+app.post('/login', (req, res) => {
+    const { phone, password } = req.body;
+
+    // Retrieve user information based on the provided phone number
+    pool.query('SELECT * FROM userss WHERE phone = ?', [phone], (err, results) => {
+        if (err) {
+            console.error('Error fetching user:', err);
+            return res.status(500).json({ message: 'Server error' });
+        }
+
+        if (results.length === 0) {
+            return res.status(404).json({ message: 'This number is not registered' });
+        }
+
+        const user = results[0];
+
+        // Check if password is correct
+        const isPasswordValid = bcrypt.compareSync(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: 'Password incorrect' });
+        }
+
+        return res.json({ 
+            message: 'Login successful', 
+            username: user.username, 
+            phone: user.phone 
+        });
     });
 });
 

@@ -168,8 +168,9 @@
 /* Style for the username and userphone spans */
 #username,
 #userphone {
+  font-weight: 600;
   font-size: 1.7rem; /* Adjusted font size for user details */
-  color: #ffdab9;
+  color: #7c0249;
   display: inline-block; /* Display spans in a block to allow line breaks */
   margin-right: 1rem; /* Add a little spacing between the elements */
   margin-bottom: 0.5rem; /* Adjusted margin for vertical spacing */
